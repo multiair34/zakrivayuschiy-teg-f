@@ -17,4 +17,71 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-text), Helvetica, sans-serif;
+  font-variation-settings: 'wght' var(--height-text);
+  color: var(--accent-color);
+  background: var(--background-image) fixed;
+  background-size: cover;
+}
+
+.header {
+  height: 100%;
+  width: 100%;
+  font-family: var(--accent-text), Arial, sans-serif;
+  text-transform: uppercase;
+  margin: 100px 0; /* надо переделать в clamp()*/
+}
+
+.theme-menu {
+  display: grid;
+  justify-items: center;
+  background-color: var(--background-color);
+  border: var(--border) var(--accent-color);
+  padding: var(--header-padding-top) var(--header-padding-inline) var(--header-padding-bottom); /* надо исправить clamp()*/
+  gap: 25px;
+}
+
+.theme-menu__logo {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+}
+
+.theme-menu__logo-heading {
+  font-size: var(--accent-text-size-heading);
+}
+
+.theme-menu__list {
+  display: grid;
+  justify-items: start;
+  gap: 14px;
+}
+
+.theme-menu__button {
+  background-color: transparent;
+  border: none;
+  text-transform: inherit;
+}
+
+.card {
+  border: var(--border) var(--accent-color);
+  background-color: var(--background-color);
+  font-size: var(--main-text-size);
+}
+
+.card-heading {
+  font-size: var(--main-text-size);
+  font-weight: 700;
+  padding: 3px 10px;
+  line-height: var(--line-height);
+}
+
+.card__body {
+  display: grid;
+  gap: 25px;
+  line-height: var(--line-height);
+}
+
+.card__button {
+  justify-self: end;
 }
