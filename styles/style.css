@@ -17,11 +17,13 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  max-width: 700px;
   font-family: var(--main-text), Helvetica, sans-serif;
   font-variation-settings: 'wght' var(--height-text);
   color: var(--accent-color);
   background: var(--background-image) fixed;
   background-size: cover;
+  margin: 0 auto;
 }
 
 .header {
@@ -57,31 +59,186 @@
   gap: 14px;
 }
 
+
 .theme-menu__button {
+  position: relative;
   background-color: transparent;
   border: none;
   text-transform: inherit;
+  outline: none;
+}
+
+.main {
+  display: grid;
+  gap: 50px;
 }
 
 .card {
-  border: var(--border) var(--accent-color);
+  outline: var(--border) var(--accent-color);
   background-color: var(--background-color);
   font-size: var(--main-text-size);
 }
 
 .card-heading {
   font-size: var(--main-text-size);
-  font-weight: 700;
+  font-weight: var(--main-height-text);
   padding: 3px 10px;
   line-height: var(--line-height);
+}
+
+.card__body-image {
+  position: relative;
+}
+
+.card__body-image-label {
+  position: absolute;
+  z-index: 2;
+  tab-size: var(--accent-text-size);
+  font-family: var(--accent-text);
+  color: var(--accent-color);
+  text-transform: uppercase;
+  mix-blend-mode: hard-light;
+  top: 25px;
+  right: clamp(1rem, 5vw, 1.79rem);
+  opacity: 50%;
+  text-shadow: 
+  -1px 0 var(--background-color), 
+  0 1px var(--background-color), 
+  1px 0 var(--background-color), 
+  0 -1px var(--background-color);
+}
+
+@supports((text-stroke: 1px var(--background-color)) or (-webkit-text-stroke: 1px var(--background-color))) {
+  .card__body-image-label {
+      -webkit-text-stroke: 1px var(--background-color);
+      text-stroke: 1px var(--background-color);
+      text-shadow: none;
+  }
+} 
+
+.card-img {
+  width: 100%;
 }
 
 .card__body {
   display: grid;
   gap: 25px;
+  padding-inline: 25px;
   line-height: var(--line-height);
+  padding-block-end: 25px;
 }
 
 .card__button {
   justify-self: end;
+}
+
+.card__icon-button, .card__like-button {
+  background-color: var(--background-color);
+  border: var(--border) var(--accent-color);
+  font-family: var(--accent-text), Arial, sans-serif;
+  font-size: var(--accent-text-size);
+}
+
+.card__like-button {
+  block-size: 38px;
+  inline-size: 130px;
+  text-transform: capitalize;
+}
+
+.save-button {
+  justify-self: center;
+  margin-bottom: 100px;
+}
+
+.save-button .card__icon-button {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 15px 21px;
+}
+
+.floppy {
+  width: 28px;
+  height: 28px;
+}
+
+
+
+@media (width > 375px) {
+  
+  .card__icon-button {
+    width: fit-content;
+    align-items: center;
+    grid-template-columns: auto  auto;
+  }
+
+  .floppy {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+
+.theme-menu__button {
+  cursor: pointer;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .3s;
+}
+
+.theme-menu__button:hover, :disabled {
+  opacity: 0.6;
+  animation: hover 0.3s ease;
+}
+
+@keyframes hover {
+  0% { 
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+}
+
+.theme-menu__button:focus-visible {
+  background-size: 100% 2px;
+  outline: none;
+}
+
+.theme-menu__button:focus::before {
+  content: '▶';
+  color: currentColor;
+  position: absolute;
+  left: -15px;
+  animation: arrow .5s ease-in-out infinite alternate;
+
+  /* работает не совсем правильно  */
+}
+
+@keyframes arrow {
+  0% {
+    left: -15px;
+  }
+  
+  100% {
+    left: -11px;
+  }
+}
+
+.card__icon-button:focus, .card__like-button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0px 0px var(--accent-color);
+  transition: .3s;
+}
+
+.card__icon-button:hover, .card__like-button:hover {
+  
 }
