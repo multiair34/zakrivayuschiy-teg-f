@@ -14,7 +14,9 @@
     --accent-text-size: 14px;
     --main-text-size: 18px;
     --accent-text-size-heading: clamp(3.063rem, 2.71rem + 1.502vw, 4.063rem);
-    
+    --heart-color: #FF0000;
+
+
     /*
     --header-margin-block: clamp(33%, 100px, 100%);
     --header-margin-inline: clamp(2px, 1px, 48.6%); */
