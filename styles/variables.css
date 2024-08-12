@@ -16,15 +16,9 @@
     --accent-text-size-heading: clamp(3.063rem, 2.71rem + 1.502vw, 4.063rem);
     --heart-color: #FF0000;
 
-
-    /*
-    --header-margin-block: clamp(33%, 100px, 100%);
-    --header-margin-inline: clamp(2px, 1px, 48.6%); */
     --header-padding-top: clamp(120px, 5vh, 136px);
     --header-padding-inline: clamp(14px, 2vh, 120.5px);
     --header-padding-bottom: clamp(1px, 25px, 100px);
-
-
     --border: 2px solid;
     --line-height: 21px;
 }
