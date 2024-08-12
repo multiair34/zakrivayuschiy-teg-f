@@ -21,7 +21,7 @@
   font-family: var(--main-text), Helvetica, sans-serif;
   font-variation-settings: 'wght' var(--height-text);
   color: var(--accent-color);
-  background: var(--background-image) fixed;
+  background: var(--back-gradient) fixed;
   background-size: cover;
   margin: 0 auto;
 }
@@ -31,7 +31,8 @@
   width: 100%;
   font-family: var(--accent-text), Arial, sans-serif;
   text-transform: uppercase;
-  margin: 100px 0; /* надо переделать в clamp()*/
+  margin: 100px 0;
+   /* надо переделать в clamp()*/
 }
 
 .theme-menu {
@@ -57,15 +58,6 @@
   display: grid;
   justify-items: start;
   gap: 14px;
-}
-
-
-.theme-menu__button {
-  position: relative;
-  background-color: transparent;
-  border: none;
-  text-transform: inherit;
-  outline: none;
 }
 
 .main {
@@ -99,7 +91,7 @@
   text-transform: uppercase;
   mix-blend-mode: hard-light;
   top: 25px;
-  right: clamp(1rem, 5vw, 1.79rem);
+  right: clamp(0.8125rem, 0.5484rem + 1.1268vw, 1.5625rem);
   opacity: 50%;
   text-shadow: 
   -1px 0 var(--background-color), 
@@ -154,13 +146,14 @@
 .save-button .card__icon-button {
   display: grid;
   justify-items: center;
+  color: var(--but-text-color);
   gap: 8px;
   padding: 15px 21px;
 }
 
 .floppy {
   z-index: 1;
-  background-blend-mode: difference;
+  mix-blend-mode: difference;
   width: 28px;
   height: 28px;
 }
@@ -184,6 +177,11 @@
 
 
 .theme-menu__button {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  text-transform: inherit;
+  outline: none;
   cursor: pointer;
   text-decoration: none;
   background-image: linear-gradient(currentColor, currentColor);
@@ -191,9 +189,10 @@
   background-repeat: no-repeat;
   background-size: 0% 2px;
   transition: background-size .3s;
+  padding: 1px 0;
 }
 
-.theme-menu__button:hover, :disabled {
+.theme-menu__button:hover {
   opacity: 0.6;
   animation: hover 0.3s ease;
 }
@@ -209,6 +208,7 @@
 }
 
 .theme-menu__button:disabled {
+  opacity: 0.6;
   pointer-events: none;
 }
 
@@ -217,23 +217,21 @@
   outline: none;
 }
 
-.theme-menu__button:focus::before {
+.theme-menu__button:disabled::before {
   content: '▶';
   color: currentColor;
   position: absolute;
-  left: -15px;
+  left: -19px;
   animation: arrow .5s ease-in-out infinite alternate;
-
-  /* работает не совсем правильно  */
 }
 
 @keyframes arrow {
   0% {
-    left: -15px;
+    left: -19px;
   }
   
   100% {
-    left: -11px;
+    left: -15px;
   }
 }
 
@@ -252,8 +250,6 @@
   width: 100%;
   height: 100%;
   animation: but 0.5s ease-in-out;
-  background-blend-mode: difference;
-  
 }
 
 @keyframes but {
@@ -269,14 +265,14 @@
 }
 
 .card__icon-button:hover, .card__like-button:hover {
-  color: var(--background-color);
   overflow-x: hidden;
-  background-blend-mode: difference;
 }
 
 .button__text {
+  color: var(--but-text-color);
   position: relative;
   z-index: 1;
+  mix-blend-mode: difference;
 }
 
 .card__button + .card__icon-button:focus {
