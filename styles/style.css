@@ -17,9 +17,9 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  max-width: 700px;
+  max-inline-size: 700px;
   font-family: var(--main-text), Helvetica, sans-serif;
-  font-variation-settings: 'wght' var(--height-text);
+  font-variation-settings: 'wght' var(--weight-text);
   color: var(--accent-color);
   background: var(--back-gradient) fixed;
   background-size: cover;
@@ -29,13 +29,13 @@
 .header {
   height: 100%;
   width: 100%;
-  font-family: var(--accent-text), Arial, sans-serif;
+  font-family: var(--accent-text), fantasy, sans-serif;
   text-transform: uppercase;
   margin: 100px 0;
    /* надо переделать в clamp()*/
 }
 
-.theme-menu {
+.header__container {
   display: grid;
   justify-items: center;
   background-color: var(--background-color);
@@ -44,20 +44,26 @@
   gap: 25px;
 }
 
-.theme-menu__logo {
+.header__logo {
   display: grid;
   justify-items: center;
   gap: 20px;
 }
 
-.theme-menu__logo-heading {
+.header__logo-heading {
   font-size: var(--accent-text-size-heading);
+  text-decoration: none;
+}
+
+.header__logo-text {
+  font-size: clamp(0.875rem, 0.677rem + 0.845vw, 1.438rem);
 }
 
 .theme-menu__list {
   display: grid;
   justify-items: start;
   gap: 14px;
+  font-size: var(--accent-text-size);
 }
 
 .main {
@@ -73,13 +79,19 @@
 
 .card-heading {
   font-size: var(--main-text-size);
-  font-weight: var(--main-height-text);
+  font-variation-settings: 'wght' var(--main-weight-text);
+  font-weight: var(--main-weight-text);
   padding: 3px 10px;
   line-height: var(--line-height);
 }
 
 .card__body-image {
   position: relative;
+  margin-bottom: 25px;
+}
+
+.card__body-text {
+  font-variation-settings: 'wght' var(--weight-text);
 }
 
 .card__body-image-label {
@@ -110,6 +122,8 @@
 
 .card-img {
   width: 100%;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
 }
 
 .card__body {
@@ -129,7 +143,7 @@
   position: relative;
   background-color: var(--background-color);
   border: var(--border) var(--accent-color);
-  font-family: var(--accent-text), Arial, sans-serif;
+  font-family: var(--accent-text), fantasy, sans-serif;
   font-size: var(--accent-text-size);
 }
 
@@ -170,7 +184,6 @@
   }
 
   .floppy {
-    background-blend-mode: difference;
     width: 24px;
     height: 24px;
   }
@@ -198,15 +211,6 @@
   animation: hover 0.3s ease;
 }
 
-@keyframes hover {
-  0% { 
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.6;
-  }
-}
 
 .theme-menu__button:disabled {
   opacity: 0.6;
@@ -226,15 +230,7 @@
   animation: arrow .5s ease-in-out infinite alternate;
 }
 
-@keyframes arrow {
-  0% {
-    left: -19px;
-  }
-  
-  100% {
-    left: -15px;
-  }
-}
+
 
 .card__save-button:focus, .card__like-button:focus, .popup__closest-but:focus {
   outline: none;
@@ -250,20 +246,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  animation: but 0.5s ease-in-out;
+  animation: but 0.5s ease-in-out alternate;
 }
 
-@keyframes but {
-  0% {
-    transform: translateX(-100%);
-  }
+/* Исправить анимацию */
 
-  100% {
-    transform: translateX(0);
 
-  }
-
-}
 
 .card__save-button:hover, .card__like-button:hover, .popup__closest-but:hover {
   overflow-x: hidden;
@@ -291,82 +279,8 @@
   border: none;
 }
 
-.like-icon .sparks {
-  opacity: 0;
-}
 
-.like-icon .core {
-  fill: transparent;
-  transition: fill 0.3s 0.03s linear;
-}
 
-.like-icon:hover .core {
-  fill: var(--accent-color);
-  transition: fill 0.3s linear;
-}
-
-.like-icon .main-body {
-  fill: transparent;
-  transition: fill 0.3s linear;
-}
-
-.like-icon:hover .main-body {
-  fill: var(--accent-color);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon:active .core {
-  fill: var(--heart-color);
-  transition: fill 0.3s linear;
-}
-
-.like-icon:active .main-body {
-  fill: var(--heart-color);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon.is-liked .core {
-  fill: var(--heart-color);
-  transition: fill 0.3s linear;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--heart-color);
-  transition: fill 0.3s 0.05s linear;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--heart-color);
-  transition: fill 0.3s 0.06s linear;
-}
-
-.like-icon.is-liked {
-  animation: heart-scale 0.3s 0.1s ease-in 1 alternate;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks-opacity 0.3s 0.3s ease-in 1 alternate;
-}
-
-@keyframes heart-scale {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.5);
-  }
-}
-
-@keyframes sparks-opacity {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
 
 .popup::backdrop {
   background-color: #000;
@@ -374,12 +288,10 @@
 }
 
 .popup {
-  position: fixed;
   inset: 0;
-
   display: grid;
   padding: 0 42px;
-  width: clamp(340px, 100vw, 385px) ;
+  width: clamp(340px, 100vw, 385px);
   height: 190px;
   background-color: var(--background-color);
   color: var(--accent-color);
@@ -405,7 +317,7 @@
 }
 
 .popup__text {
-  font-family: var(--accent-text), Arial, sans-serif;
+  font-family: var(--accent-text), fantasy, sans-serif;
   text-transform: uppercase;
   font-size: var(--accent-text-size);
   line-height: var(--line-height);
@@ -422,7 +334,7 @@
 
 .popup .button__text {
   align-self: center;
-  font-family: var(--accent-text), Arial, sans-serif;
+  font-family: var(--accent-text), fantasy, sans-serif;
   text-transform: uppercase;
   font-size: var(--accent-text-size);
 }

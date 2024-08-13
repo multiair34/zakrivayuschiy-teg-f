@@ -6,8 +6,8 @@
 */
 
 :root.theme-dark {
-    --main-height-text: 785;
-    --height-text: 485;
+    --main-weight-text: 785;
+    --weight-text: 485;
     --background-color: #000000;
     --accent-color: #00CC14;
     --but-text-color: #00CC14;
@@ -17,8 +17,8 @@
 }
 
 :root.theme-light {
-    --main-height-text: 700;
-    --height-text: 400;
+    --main-weight-text: 700;
+    --weight-text: 400;
     --background-color: #FFFFFF;
     --accent-color: #000000;
     --but-text-color: #fff;
@@ -31,8 +31,8 @@
 @media (prefers-color-scheme: light) {
 
     :root {
-        --main-height-text: 700;
-        --height-text: 400;
+        --main-weight-text: 700;
+        --weight-text: 400;
         --background-color: #FFFFFF;
         --accent-color: #000000;
         --but-text-color: #fff;
