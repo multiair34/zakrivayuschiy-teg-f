@@ -27,12 +27,10 @@
 }
 
 .header {
-  height: 100%;
   width: 100%;
   font-family: var(--accent-text), fantasy, sans-serif;
   text-transform: uppercase;
   margin: 100px 0;
-   /* надо переделать в clamp()*/
 }
 
 .header__container {
@@ -98,6 +96,7 @@
   position: absolute;
   z-index: 2;
   tab-size: var(--accent-text-size);
+  font-size: var(--accent-text-size);
   font-family: var(--accent-text);
   color: var(--accent-color);
   text-transform: uppercase;
@@ -139,7 +138,7 @@
   justify-self: end;
 }
 
-.card__save-button, .card__like-button {
+.button {
   position: relative;
   background-color: var(--background-color);
   border: var(--border) var(--accent-color);
@@ -158,7 +157,7 @@
   margin-bottom: 100px;
 }
 
-.save-button .card__save-button {
+.save-button .button {
   display: grid;
   justify-items: center;
   color: var(--but-text-color);
@@ -202,13 +201,13 @@
   background-position: 0% 100%;
   background-repeat: no-repeat;
   background-size: 0% 2px;
-  transition: background-size .3s;
+  opacity: 1;
+  transition: background-size .3s, opacity 0.3s ease ;
   padding: 1px 0;
 }
 
 .theme-menu__button:hover {
   opacity: 0.6;
-  animation: hover 0.3s ease;
 }
 
 
@@ -230,15 +229,13 @@
   animation: arrow .5s ease-in-out infinite alternate;
 }
 
-
-
-.card__save-button:focus, .card__like-button:focus, .popup__closest-but:focus {
+.button:focus {
   outline: none;
   box-shadow: 2px 2px 0px 0px var(--accent-color);
   transition: .3s;
 }
 
-.card__save-button:hover::before, .card__like-button:hover::before, .popup__closest-but:hover::before {
+.button:hover::before {
   content: "";
   background-color: var(--accent-color);
   position: absolute;
@@ -253,7 +250,7 @@
 
 
 
-.card__save-button:hover, .card__like-button:hover, .popup__closest-but:hover {
+.button:hover {
   overflow-x: hidden;
 }
 
@@ -292,7 +289,7 @@
   display: grid;
   padding: 0 42px;
   width: clamp(340px, 100vw, 385px);
-  height: 190px;
+  padding-block: 30px;
   background-color: var(--background-color);
   color: var(--accent-color);
   gap: 30px;
@@ -329,7 +326,7 @@
   display: grid;
   background-color: inherit;
   border: var(--border) var(--accent-color);
-  height: 40px;
+  padding-block: 11px;
 }
 
 .popup .button__text {
@@ -337,4 +334,32 @@
   font-family: var(--accent-text), fantasy, sans-serif;
   text-transform: uppercase;
   font-size: var(--accent-text-size);
+}
+
+.card-img__filterOne {
+  filter: sepia(50%);
+}
+
+.card-img__filterTwo {
+  filter: brightness(50%);
+}
+
+.card-img__filterThree {
+  filter: invert(1) brightness(70%) saturate(60%) hue-rotate(90deg);
+}
+
+.card-img__filterFour {
+  filter: saturate(220%);
+}
+
+.card-img__filterFive {
+  filter: blur(.3rem);
+}
+
+.card-img__filterSix {
+  filter: invert(0.3);
+}
+
+.card-img__filterSeven {
+  filter: grayscale(100%);
 }
