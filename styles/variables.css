@@ -18,7 +18,7 @@
 
     --header-padding-top: clamp(120px, 5vh, 136px);
     --header-padding-inline: clamp(14px, 2vh, 120.5px);
-    --header-padding-bottom: clamp(1px, 25px, 100px);
+    --header-padding-bottom: clamp(1px, 20px, 100px);
     --border: 2px solid;
     --line-height: 21px;
 }

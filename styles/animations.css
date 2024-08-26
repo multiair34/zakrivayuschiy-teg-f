@@ -81,16 +81,6 @@
   }
 }
 
-@keyframes but {
-    0% {
-      transform: translateX(-100%);
-    }
-  
-    50% {
-      transform: translateX(0);
-    }
-  }
-
 @keyframes heart-scale {
   from {
     transform: scale(1);

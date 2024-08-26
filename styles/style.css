@@ -30,7 +30,7 @@
   width: 100%;
   font-family: var(--accent-text), fantasy, sans-serif;
   text-transform: uppercase;
-  margin: 100px 0;
+  margin: 104px 0;
 }
 
 .header__container {
@@ -58,15 +58,16 @@
 }
 
 .theme-menu__list {
+  padding-inline-start: 20px;
   display: grid;
   justify-items: start;
-  gap: 14px;
+  gap: 12px;
   font-size: var(--accent-text-size);
 }
 
 .main {
   display: grid;
-  gap: 50px;
+  gap: 53px;
 }
 
 .card {
@@ -85,11 +86,12 @@
 
 .card__body-image {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .card__body-text {
   font-variation-settings: 'wght' var(--weight-text);
+  word-spacing: 1px;
 }
 
 .card__body-image-label {
@@ -144,6 +146,8 @@
   border: var(--border) var(--accent-color);
   font-family: var(--accent-text), fantasy, sans-serif;
   font-size: var(--accent-text-size);
+  transition: box-shadow .3s ease;
+  overflow: hidden;
 }
 
 .card__like-button {
@@ -202,7 +206,7 @@
   background-repeat: no-repeat;
   background-size: 0% 2px;
   opacity: 1;
-  transition: background-size .3s, opacity 0.3s ease ;
+  transition: opacity 0.3s ease;
   padding: 1px 0;
 }
 
@@ -235,7 +239,7 @@
   transition: .3s;
 }
 
-.button:hover::before {
+.button::before {
   content: "";
   background-color: var(--accent-color);
   position: absolute;
@@ -243,15 +247,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  animation: but 0.5s ease-in-out alternate;
+  transition: translate .5s ease-in-out;
+  translate: -100%;
 }
 
-/* Исправить анимацию */
-
-
-
-.button:hover {
-  overflow-x: hidden;
+.button:hover::before {
+  translate: 0%;
 }
 
 .button__text {
@@ -261,11 +262,11 @@
   mix-blend-mode: difference;
 }
 
-.card__button + .card__save-button:focus {
+.card__save-button:focus {
   outline: none;
 }
 
-.card__button + .card__save-button:focus-visible {
+.card__save-button:focus-visible {
   outline: none;
   border: 2px solid var(--accent-color);
 }
@@ -336,30 +337,30 @@
   font-size: var(--accent-text-size);
 }
 
-.card-img__filterOne {
+.card-img-sepia {
   filter: sepia(50%);
 }
 
-.card-img__filterTwo {
+.card-img-brightness {
   filter: brightness(50%);
 }
 
-.card-img__filterThree {
+.card-img-multiFilter {
   filter: invert(1) brightness(70%) saturate(60%) hue-rotate(90deg);
 }
 
-.card-img__filterFour {
+.card-img-saturate {
   filter: saturate(220%);
 }
 
-.card-img__filterFive {
+.card-img-blur {
   filter: blur(.3rem);
 }
 
-.card-img__filterSix {
+.card-img-invert {
   filter: invert(0.3);
 }
 
-.card-img__filterSeven {
+.card-img-grayscale {
   filter: grayscale(100%);
 }
