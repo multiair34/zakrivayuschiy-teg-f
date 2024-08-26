@@ -16,7 +16,7 @@
     --accent-text-size-heading: clamp(3.063rem, 2.71rem + 1.502vw, 4.063rem);
     --heart-color: #FF0000;
 
-    --header-padding-top: clamp(120px, 5vh, 136px);
+    --header-padding-top: clamp(7.5rem, 7.148rem + 1.502vw, 8.5rem);
     --header-padding-inline: clamp(14px, 2vh, 120.5px);
     --header-padding-bottom: clamp(1px, 20px, 100px);
     --border: 2px solid;

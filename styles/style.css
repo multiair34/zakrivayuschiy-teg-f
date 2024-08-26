@@ -30,7 +30,7 @@
   width: 100%;
   font-family: var(--accent-text), fantasy, sans-serif;
   text-transform: uppercase;
-  margin: 104px 0;
+  margin: 106px 0;
 }
 
 .header__container {
@@ -179,17 +179,27 @@
 
 
 @media (width > 375px) {
-  
+
+  .card__body-text {
+    word-spacing: 0;
+  }
+
   .card__save-button {
     width: fit-content;
     align-items: center;
     grid-template-columns: auto  auto;
   }
 
+  .save-button {
+    margin-block-start: -5px;
+  }
+
   .floppy {
     width: 24px;
     height: 24px;
   }
+
+  
 }
 
 
